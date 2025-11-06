@@ -1,0 +1,13 @@
+# whitelist rc files
+
+# ignore everything
+*
+
+# unignore this file
+!.gitignore
+
+# include rc files
+!.*rc
+
+# include other relevant files
+!.zshfns

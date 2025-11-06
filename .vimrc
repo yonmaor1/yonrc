@@ -29,3 +29,7 @@ hi LineNr guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
 hi StatusLine guibg=NONE ctermbg=NONE
 hi StatusLineNC guibg=NONE ctermbg=NONE
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
