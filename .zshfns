@@ -1,5 +1,5 @@
 function eif {
 	# echo the eif of the given serial number
     local sn="$1"
-	echo ${sn[10]}
+	echo ${sn[11]}
 }
