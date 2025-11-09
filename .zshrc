@@ -1,37 +1,21 @@
-#######################################################
-# load Square specific zshrc; please don't change this bit.
-#######################################################
-source ~/Development/config_files/square/zshrc
-#######################################################
-
-###########################################
-# Feel free to make your own changes below.
-###########################################
-
-# uncomment to automatically `bundle exec` common ruby commands
-# if [[ -f "$SQUARE_HOME/config_files/square/bundler-exec.sh" ]]; then
-#   source $SQUARE_HOME/config_files/square/bundler-exec.sh
-# fi
-
-# load the aliases in config_files files (optional)
-source ~/Development/config_files/square/aliases
+# load local rc data
+source ~/Development/config_files/.zshlocal    
 
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 [[ -f "$HOME/.localaliases" ]] && source "$HOME/.localaliases"
+[[ -f "~/.zshfns" ]] && source ~/.zshfns
 
+# python
 alias python3=python3.12
 alias python=python3
 export PIPX_DEFAULT_PYTHON=python3
-
-alias compost="~/Development/topsoil/compost"
-
-# end block zshrc #
-source ~/.zshfns
-
-alias ls='eza'
-alias countdir='pwd | ls -1 | wc -l'
 alias vac='source .venv/bin/activate'
 alias vinit='python -m venv .venv --prompt ${${PWD:t}//\ /}'
+
+# aliases
+alias ls='eza'
+alias countdir='pwd | ls -1 | wc -l'
+
 alias ytdl='yt-dlp'
 alias f2v='f() { ffmpeg -framerate 30 -pattern_type glob -i "$1/*.jpeg" -c:v libx264 -pix_fmt yuv420p $2 };f'
 alias gitpush-fix='git config http.postBuffer 524288000'
@@ -53,8 +37,7 @@ a: Converts a path to its absolute form"
 
 alias strmod-h='echo "$mod_help_str"'
 
-alias git-push-all="~/Development/scripts/git_push_all.zsh"
-
+# prompt
 function git_branch_name() {
     local branch=$(git branch 2> /dev/null | grep "*")
     branch="${branch#*\ }"
