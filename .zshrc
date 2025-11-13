@@ -44,8 +44,14 @@ function git_branch_name() {
     branch="${branch#*\/}"
     branch="${branch//\(/}"
     branch="${branch//\)/}"
+    local repo_basename=$(basename $(git rev-parse --show-toplevel) 2> /dev/null)
     if [[ -n $branch ]]; then
-	echo "($branch) "
+        if [ $repo_basename = 'yon' ]; then
+            # ignore root repo
+            echo ""
+        else
+	        echo "($branch) "
+        fi
     else
     	echo ""
     fi
@@ -86,4 +92,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 export PATH=~/bin:$PATH
+
+unsetopt inc_append_history
+unsetopt share_history
 
